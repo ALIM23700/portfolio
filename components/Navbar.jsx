@@ -67,9 +67,9 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* Download CV Button - More Modern Look */}
+          {/* Download CV Button - Direct Download */}
           <a
-            href="https://drive.google.com/uc?export=download&id=1RquuOQYwIvCZzQpKiyDpcZsPesTIuE5E"
+            href="https://drive.google.com/uc?export=download&id=1S_PCdkFdDda82ZUneZl_jlVCz5p7hLqj"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full transition-all text-sm font-semibold shadow-lg shadow-blue-600/20 active:scale-95"
@@ -109,7 +109,7 @@ const Navbar = () => {
           ))}
           <li>
             <a
-              href="https://drive.google.com/uc?export=download&id=1RquuOQYwIvCZzQpKiyDpcZsPesTIuE5E"
+              href="https://drive.google.com/uc?export=download&id=1S_PCdkFdDda82ZUneZl_jlVCz5p7hLqj"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-full text-sm font-bold"
