@@ -4,6 +4,15 @@ import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
+   {
+    name: "Think Mirror",
+    description:
+      "Ai Based website where you can review your thoghts and decisions",
+    tech: ["React", "Next.js", "Tailwind CSS", "Node.js", "Express", "MongoDB","Gemini Api"],
+    github: "https://github.com/ALIM23700/Fullstack_ThinkMirror",
+    live: "https://think-mirror-frontend.vercel.app/",
+    image: "think.png",
+  },
   {
     name: "Fullstack E-Commerce",
     description:
@@ -31,6 +40,7 @@ const projects = [
     live: "https://social-media-frontend-sigma-rosy.vercel.app/",
     image: "social.png",
   },
+ 
 ];
 
 const ProjectPage = () => {
