@@ -66,9 +66,9 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* CV Download (Google Drive FIXED) */}
+          {/* CV Download (FIXED FROM YOUR ORIGINAL LINK) */}
           <a
-            href="https://drive.google.com/uc?export=download&id=1xYED__UuFjnMp28-Zi0gSlCmlTf7gbH-"
+            href="https://drive.google.com/uc?export=download&id=1Qy_L2P2W9hVaPNMoE9QHO9JbLqhc4D6g"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full transition-all text-sm font-semibold shadow-lg shadow-blue-600/20 active:scale-95"
@@ -109,10 +109,10 @@ const Navbar = () => {
             </li>
           ))}
 
-          {/* Mobile CV Download */}
+          {/* Mobile CV Download (FIXED) */}
           <li>
             <a
-              href="https://drive.google.com/uc?export=download&id=1xYED__UuFjnMp28-Zi0gSlCmlTf7gbH-"
+              href="https://drive.google.com/uc?export=download&id=1Qy_L2P2W9hVaPNMoE9QHO9JbLqhc4D6g"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-full text-sm font-bold"
