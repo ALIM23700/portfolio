@@ -80,7 +80,7 @@ const Navbar = () => {
 
           {/* CV Button */}
           <motion.a
-            href="https://drive.google.com/uc?export=download&id=1Qy_L2P2W9hVaPNMoE9QHO9JbLqhc4D6g"
+            href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
             target="_blank"
             className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold"
             whileHover={{
@@ -137,7 +137,7 @@ const Navbar = () => {
 
               <motion.li whileHover={{ scale: 1.05 }}>
                 <a
-                  href="https://drive.google.com/uc?export=download&id=1Qy_L2P2W9hVaPNMoE9QHO9JbLqhc4D6g"
+                  href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
                   target="_blank"
                   className="flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-full text-sm font-bold"
                 >
