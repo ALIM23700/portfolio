@@ -175,18 +175,18 @@ export default function Page() {
     className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-6 md:px-0"
   >
     <Link
-      href="#skills"
+      href="/projects"
       className="group relative px-10 py-4 bg-blue-600 overflow-hidden rounded-xl font-bold text-lg hover:bg-blue-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:-translate-y-1 text-center"
     >
-      <span className="relative z-10">View My Skills</span>
+      <span className="relative z-10">View My Work</span>
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
     </Link>
     
     <Link
-      href="#about"
+      href="/skills"
       className="px-10 py-4 border border-white/10 bg-white/5 rounded-xl font-bold text-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 hover:-translate-y-1 text-center backdrop-blur-sm"
     >
-      About Me
+      My Skills
     </Link>
   </motion.div>
 
