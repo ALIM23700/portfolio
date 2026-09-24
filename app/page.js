@@ -13,12 +13,47 @@ import {
   SiNextdotjs, SiTypescript, SiExpress, SiPostman, 
   SiCplusplus, SiTailwindcss, SiMongodb 
 } from "react-icons/si";
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+
+const experiences = [
+  {
+    role: "SQA Intern",
+    place: "BizNextIT (in collaboration with KJ Commons)",
+    period: "12-week program · Completed May 2026",
+    points: [
+      "Completed a 12-week hands-on software testing program on the 6969 App.",
+      "Wrote test cases and reported bugs with severity and priority.",
+      "Tested Android and iOS apps, APIs (Postman) and databases (MySQL).",
+      "Ran smoke and regression tests; practiced Appium automation basics.",
+    ],
+    tags: ["Manual Testing", "Postman", "MySQL", "Appium", "Mobile QA"],
+    certificate: "Certificate ID: BIT-SQA-2026-006",
+  },
+];
+
+const education = [
+  {
+    degree: "B.Sc. in Computer Science & Engineering",
+    place: "Pabna University of Science and Technology (PUST)",
+    period: "2022 – 2026",
+    status: "CSE Graduate",
+    coursework: [
+      "Data Structures",
+      "Algorithms",
+      "OOP",
+      "Database Systems",
+      "Operating Systems",
+      "Computer Networks",
+      "Software Engineering",
+    ],
+  },
+];
 
 // Projects data array
 const projects = [
   {
     name: "Think Mirror",
-    description: "AI-based platform where users can review thoughts and decisions with Gemini API integration.",
+    description: "An AI-powered decision analysis platform that helps users evaluate choices by comparing options, analyzing pros and cons, and providing structured insights for better decision-making.",
     tech: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB", "Gemini API"],
     image: "/think.png", 
     github: "https://github.com/ALIM23700/Fullstack_ThinkMirror",
@@ -26,7 +61,7 @@ const projects = [
   },
   {
     name: "Fullstack E-Commerce",
-    description: "Comprehensive MERN application featuring SSL Commerz, JWT auth, and a dedicated admin panel.",
+    description: "A full-stack e-commerce platform that provides product browsing, user authentication, cart management, order processing, and secure online payment functionality.",
     tech: ["React", "Express", "MongoDB", "SSL Commerz", "Tailwind"],
     image: "/ecom.png",
     github: "https://github.com/ALIM23700/fullstack-ecommerce",
@@ -34,7 +69,7 @@ const projects = [
   },
   {
     name: "University Assistant",
-    description: "Management system for students to handle notes, assignments, and daily academic tasks.",
+    description: "A centralized platform designed to help university students easily access academic information, manage essential resources, and get important university-related support in one place.",
     tech: ["Next.js", "Express", "MongoDB", "JWT Auth"],
     image: "/Home.png",
     github: "https://github.com/ALIM23700/University-Assistant-Fullstack",
@@ -42,7 +77,7 @@ const projects = [
   },
   {
     name: "Social Media App",
-    description: "Real-time social networking platform with messaging, post likes, and socket integration.",
+    description: "A full-stack social networking platform where users can create posts, interact with others, manage profiles, and communicate through a responsive and user-friendly interface.",
     tech: ["React", "Socket.io", "Node.js", "MongoDB"],
     image: "/social.png",
     github: "https://github.com/ALIM23700/social-media-fullstack",
@@ -79,7 +114,7 @@ export default function Page() {
       title: "Programming & Tools",
       skills: [
         { name: "C / C++", icon: <SiCplusplus className="text-blue-500" /> },
-        { name: "Java", icon: <FaJava className="text-red-400" /> },
+        
         { name: "Python", icon: <FaPython className="text-yellow-400" /> },
         { name: "Git & GitHub", icon: <FaGitAlt className="text-orange-500" /> },
         { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
@@ -112,7 +147,7 @@ export default function Page() {
   <motion.div 
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
+    transition={{ duration: 0.4 }}
     className="mb-4 md:mb-6 px-4 py-1 border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs md:text-sm rounded-full hover:bg-blue-500/20 hover:border-blue-500/60 transition-all duration-300 cursor-default shadow-[0_0_15px_rgba(59,130,246,0.1)]"
   >
     <span className="relative flex h-2 w-2 inline-block mr-2">
@@ -136,7 +171,7 @@ export default function Page() {
   <motion.p 
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 0.5 }}
+    transition={{ duration: 0.4, delay: 0.5 }}
     className="text-gray-400 text-lg md:text-3xl max-w-2xl mb-8 md:mb-12 font-light tracking-wide px-2"
   >
     Building the future with <span className="text-blue-500 font-medium">MERN</span> & <span className="text-cyan-400 font-medium">Next.js</span>
@@ -151,8 +186,8 @@ export default function Page() {
   >
     {[
       { icon: <FaGithub />, link: "https://github.com/ALIM23700", color: "hover:text-white" },
-      { icon: <FaLinkedin />, link: "#", color: "hover:text-blue-500" },
-      { icon: <FaFacebook />, link: "#", color: "hover:text-blue-600" }
+      { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/abdul-alim23700/", color: "hover:text-blue-500" },
+      { icon: <FaFacebook />, link: "https://www.facebook.com/AbdulAlim.CSE.PUST", color: "hover:text-blue-600" }
     ].map((item, index) => (
       <motion.a
         key={index}
@@ -171,23 +206,24 @@ export default function Page() {
   <motion.div 
     initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, delay: 1.2 }}
+    transition={{ duration: 0.4, delay: 1.2 }}
     className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-6 md:px-0"
   >
-    <Link
-      href="/projects"
-      className="group relative px-10 py-4 bg-blue-600 overflow-hidden rounded-xl font-bold text-lg hover:bg-blue-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:-translate-y-1 text-center"
-    >
-      <span className="relative z-10">View My Work</span>
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-    </Link>
-    
-    <Link
-      href="/skills"
-      className="px-10 py-4 border border-white/10 bg-white/5 rounded-xl font-bold text-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 hover:-translate-y-1 text-center backdrop-blur-sm"
-    >
-      My Skills
-    </Link>
+   <a
+  href="#projects"
+  className="group relative px-10 py-4 bg-blue-600 overflow-hidden rounded-xl font-bold text-lg hover:bg-blue-500 transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:-translate-y-1 text-center"
+>
+  <span className="relative z-10">View My Work</span>
+
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+</a>
+
+<a
+  href="#skills"
+  className="px-10 py-4 border border-white/10 bg-white/5 rounded-xl font-bold text-lg hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-300 hover:-translate-y-1 text-center backdrop-blur-sm"
+>
+  My Skills
+</a>
   </motion.div>
 
   {/* Scroll Down Indicator */}
@@ -203,111 +239,113 @@ export default function Page() {
 </section>
 
 {/* ================= ABOUT SECTION ================= */}
-<section
-  id="about"
-  className="relative min-h-screen flex items-center justify-center px-6 py-20 md:py-0 snap-start overflow-hidden bg-[#0b0f19]"
->
-  <motion.div
-    className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-20"
-    initial="hidden"
-    whileInView="show"
-    // প্রতিবার স্ক্রল করলে এনিমেশন হবে (once: false)
-    viewport={{ once: false, amount: 0.2 }} 
-  >
-    
-    {/* Left Side: Image স্লাইড হবে বাম থেকে */}
-    <motion.div
-      className="relative group cursor-pointer"
-      variants={{
-        hidden: { opacity: 0, x: -120 },
-        show: { 
-          opacity: 1, 
-          x: 0, 
-          transition: { 
-            duration: 2.5, 
-            ease: [0.22, 1, 0.36, 1] 
-          } 
-        }
-      }}
-    >
-      {/* Background Glow Effect */}
-      <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full opacity-10 group-hover:opacity-50 blur-2xl transition duration-700"></div>
-      
-      {/* Profile Image Wrapper */}
-      <div className="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-1.5 bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
-        <img
-          src="/final.jpg"
-          alt="Abdul Alim"
-          className="w-full h-full rounded-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out"
-        />
-      </div>
-    </motion.div>
 
-    {/* Right Side: Content স্লাইড হবে নিচ থেকে এবং একটির পর একটি (Stagger) */}
+<section 
+  id="about" 
+  className="relative min-h-screen flex items-center justify-center px-6 py-20 md:py-0 snap-start overflow-hidden bg-[#0b0f19]" 
+> 
+  <motion.div 
+    className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-20" 
+    initial="hidden" 
+    whileInView="show" 
+    viewport={{ once: false, amount: 0.2 }}  
+  > 
+     
+    {/* Left Side: Image স্লাইড হবে বাম থেকে */} 
     <motion.div 
-      className="flex-1 space-y-8 text-center md:text-left"
-      variants={{
-        hidden: { opacity: 0 },
-        show: { 
-          opacity: 1, 
-          transition: { 
-            staggerChildren: 0.8, // প্রতিটি লাইনের মাঝে গ্যাপ
-            delayChildren: 0.5    // শুরু হওয়ার আগে ওয়েট
-          } 
-        }
-      }}
-    >
-      {/* Title */}
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          show: { opacity: 1, y: 0, transition: { duration: 1.8, ease: "easeOut" } }
-        }}
-      >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 hover:text-blue-400 transition-colors duration-500 cursor-default">
-          About <span className="text-blue-500">Me</span>
-        </h2>
-      </motion.div>
-      
-      {/* Description */}
-      <motion.div
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          show: { opacity: 1, y: 0, transition: { duration: 2, ease: "easeOut" } }
-        }}
-        className="space-y-5"
-      >
-        <p className="text-gray-200 text-xl md:text-2xl font-medium leading-tight">
-          Hello! I’m <span className="text-blue-400">Abdul Alim</span>, a dedicated <br className="hidden md:block" />
-          <span className="text-white underline decoration-blue-500/30">MERN Stack Web Developer</span>.
-        </p>
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl hover:text-gray-300 transition-colors duration-500">
-          I specialize in building responsive, modern, and high-performance web applications using React, Next.js, Node.js, Express.js, MongoDB, Tailwind CSS, and TypeScript.
-        </p>
-      </motion.div>
-
-      {/* Info Grid Boxes */}
+      className="relative group cursor-pointer" 
+      variants={{ 
+        hidden: { opacity: 0, x: -120 }, 
+        show: {  
+          opacity: 1,  
+          x: 0,  
+          transition: {  
+            duration: 1.8,  
+            ease: [0.22, 1, 0.36, 1]  
+          }  
+        } 
+      }} 
+    > 
+      {/* Background Glow Effect */} 
+      <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full opacity-10 group-hover:opacity-50 blur-2xl transition duration-700"></div> 
+       
+      {/* Profile Image Wrapper */} 
+      <div className="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-1.5 bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"> 
+        <img 
+          src="/new.png" 
+          alt="Abdul Alim" 
+          className="w-full h-full rounded-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out" 
+        /> 
+      </div> 
+    </motion.div> 
+ 
+    {/* Right Side: Content স্লাইড হবে নিচ থেকে এবং একটির পর একটি (Stagger) */} 
+    <motion.div  
+      className="flex-1 space-y-8 text-center md:text-left" 
+      variants={{ 
+        hidden: { opacity: 0 }, 
+        show: {  
+          opacity: 1,  
+          transition: {  
+            staggerChildren: 0.6, 
+            delayChildren: 0.35    
+          }  
+        } 
+      }} 
+    > 
+      {/* Title */} 
       <motion.div 
-        className="grid grid-cols-2 gap-4 pt-4"
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          show: { opacity: 1, y: 0, transition: { duration: 2.2, ease: "easeOut" } }
-        }}
-      >
-        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg">
-          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">4th Year</h3>
-          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">CSE Student</p>
-        </div>
-        
-        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg">
-          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">MERN</h3>
-          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">Full Stack Dev</p>
-        </div>
-      </motion.div>
-
-    </motion.div>
-  </motion.div>
+        variants={{ 
+          hidden: { opacity: 0, y: 40 }, 
+          show: { opacity: 1, y: 0, transition: { duration: 1.4, ease: "easeOut" } } 
+        }} 
+      > 
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 hover:text-blue-400 transition-colors duration-500 cursor-default"> 
+          About <span className="text-blue-500">Me</span> 
+        </h2> 
+      </motion.div> 
+       
+      {/* Description */} 
+      <motion.div 
+        variants={{ 
+          hidden: { opacity: 0, y: 40 }, 
+          show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } } 
+        }} 
+        className="space-y-5" 
+      > 
+        <p className="text-gray-200 text-xl md:text-2xl font-medium leading-tight"> 
+          Hello! I’m <span className="text-blue-400">Abdul Alim</span>, a dedicated <br className="hidden md:block" /> 
+          <span className="text-white underline decoration-blue-500/30">MERN Stack Web Developer</span>. 
+        </p> 
+        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl hover:text-gray-300 transition-colors duration-500"> 
+          I specialize in building responsive, modern, and high-performance web applications using React, Next.js, Node.js, Express.js, MongoDB, Tailwind CSS, and TypeScript. 
+        </p> 
+      </motion.div> 
+ 
+      {/* Info Grid Boxes */} 
+      <motion.div  
+        className="grid grid-cols-2 gap-4 pt-4" 
+        variants={{ 
+          hidden: { opacity: 0, y: 30 }, 
+          show: { opacity: 1, y: 0, transition: { duration: 1.6, ease: "easeOut" } } 
+        }} 
+      > 
+        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg"> 
+          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">4th Year</h3> 
+          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">CSE Student</p> 
+        </div> 
+         
+        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg"> 
+          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">MERN</h3> 
+          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">Full Stack Dev</p> 
+        </div> 
+      </motion.div> 
+ 
+    </motion.div> 
+  </motion.div> 
 </section>
+
+
       {/* ================= SKILLS SECTION ================= */}
       <section
         id="skills"
@@ -457,7 +495,185 @@ export default function Page() {
     </div>
   </div>
 </section>
+
+{/*education and experice*/}
+
+<section
+  id="experience"
+  className="relative min-h-screen flex items-center justify-center px-6 py-16 md:py-20 snap-start overflow-hidden bg-gradient-to-b from-black to-[#0b0f19]"
+>
+  <div className="max-w-6xl w-full">
+
+    <motion.div
+      className="text-center mb-8 md:mb-10"
+      initial={{ opacity: 0, y: -40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-3">
+        Experience <span className="text-blue-500">&amp; Education</span>
+      </h2>
+
+      <div className="h-1 w-16 md:w-20 bg-blue-600 mx-auto rounded-full" />
+    </motion.div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+
+      {/* Experience */}
+      <motion.div
+        className="flex flex-col"
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        <h3 className="text-xl md:text-2xl font-bold mb-5 flex items-center gap-3">
+          <span className="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-full text-blue-500">
+            <FaBriefcase />
+          </span>
+          Experience
+        </h3>
+
+        <div className="relative border-l-2 border-blue-500/30 ml-5">
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="relative pl-8 pb-2">
+
+              <span className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-blue-500 border-4 border-[#0b0f19]" />
+
+              <motion.div
+                className="p-5 md:p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl hover:border-blue-500/40 transition-all duration-500"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                <h4 className="text-lg md:text-xl font-bold text-white">
+                  {exp.role}
+                </h4>
+
+                <p className="text-blue-400 font-medium text-sm mt-1">
+                  {exp.place}
+                </p>
+
+                <p className="text-gray-500 text-xs mt-1 mb-4">
+                  {exp.period}
+                </p>
+
+                <ul className="space-y-2 mb-4">
+                  {exp.points.map((point, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-2 text-gray-400 text-xs md:text-sm leading-relaxed"
+                    >
+                      <span className="text-blue-500 mt-0.5">▹</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-600/10 text-blue-400 border border-blue-500/20 text-[9px] md:text-[10px] uppercase tracking-wider font-bold px-2 md:px-3 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {exp.certificate && (
+                  <p className="text-gray-600 text-[10px] md:text-xs mt-3">
+                    {exp.certificate}
+                  </p>
+                )}
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Education */}
+      <motion.div
+        className="flex flex-col"
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 1.2, delay: 0.15, ease: "easeOut" }}
+      >
+        <h3 className="text-xl md:text-2xl font-bold mb-5 flex items-center gap-3">
+          <span className="w-10 h-10 flex items-center justify-center bg-green-500/20 rounded-full text-green-500">
+            <FaGraduationCap />
+          </span>
+          Education
+        </h3>
+
+        <div className="relative border-l-2 border-green-500/30 ml-5">
+          {education.map((edu, idx) => (
+            <div key={idx} className="relative pl-8 pb-2">
+
+              <span className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-green-500 border-4 border-[#0b0f19]" />
+
+              <motion.div
+                className="p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl hover:border-green-500/40 transition-all duration-500"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+              >
+                <span className="inline-block mb-4 bg-green-600/10 text-green-400 border border-green-500/20 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full">
+                  {edu.status}
+                </span>
+
+                <h4 className="text-xl md:text-2xl font-bold text-white leading-snug">
+                  {edu.degree}
+                </h4>
+
+                <p className="text-green-400 font-medium text-sm md:text-base mt-2">
+                  {edu.place}
+                </p>
+
+                <p className="text-gray-500 text-xs md:text-sm mt-1">
+                  {edu.period}
+                </p>
+
+                {edu.cgpa && (
+                  <p className="text-gray-300 text-sm font-semibold mt-3">
+                    CGPA: {edu.cgpa}
+                  </p>
+                )}
+
+                {edu.coursework && (
+                  <div className="mt-5 pt-5 border-t border-white/10">
+                    <p className="text-gray-500 text-[10px] mb-3 uppercase tracking-[3px] font-black">
+                      Key Coursework
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {edu.coursework.map((course, i) => (
+                        <span
+                          key={i}
+                          className="bg-green-600/10 text-green-400 border border-green-500/20 text-[9px] md:text-[10px] uppercase tracking-wider font-bold px-2 md:px-3 py-1 rounded-full"
+                        >
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
      {/* ================= CONTACT SECTION ================= */}
+
 <section id="contact" className="min-h-screen py-20 px-4 md:px-6 snap-start flex items-center justify-center bg-[#0b0f19]">
   <div className="max-w-6xl w-full">
     
@@ -481,18 +697,30 @@ export default function Page() {
         whileInView={{ opacity: 1, x: 0 }}
       >
         <div className="flex-grow">
-          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">Let's Talk</h3>
-          <p className="text-gray-400 mb-6 md:mb-8 font-medium text-sm md:text-base">Feel free to reach out!</p>
+          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors">
+            Let's Talk
+          </h3>
+
+          <p className="text-gray-400 mb-6 md:mb-8 font-medium text-sm md:text-base">
+            Feel free to reach out!
+          </p>
 
           <div className="space-y-4">
+
             {/* Email Box */}
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-gray-800/40 border border-white/5 hover:bg-gray-800/70 hover:scale-[1.02] transition-all duration-300">
               <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-blue-500/20 rounded-full text-blue-500 text-lg">
                 <FaEnvelope />
               </div>
+
               <div className="overflow-hidden">
-                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Email Me</p>
-                <p className="text-xs md:text-sm font-semibold text-gray-200 truncate">alim.210125@s.pust.ac.bd</p>
+                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">
+                  Email Me
+                </p>
+
+                <p className="text-xs md:text-sm font-semibold text-gray-200 truncate">
+                  alim.210125@s.pust.ac.bd
+                </p>
               </div>
             </div>
 
@@ -501,34 +729,63 @@ export default function Page() {
               <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-green-500/20 rounded-full text-green-500 text-lg">
                 <FaPhoneAlt />
               </div>
+
               <div>
-                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">Call Me</p>
-                <p className="text-xs md:text-sm font-semibold text-gray-200">+880 1791 723700</p>
+                <p className="text-[8px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold">
+                  Call Me
+                </p>
+
+                <p className="text-xs md:text-sm font-semibold text-gray-200">
+                  +880 1791 723700
+                </p>
               </div>
             </div>
+
           </div>
         </div>
 
         {/* Social Links */}
         <div className="pt-6 border-t border-white/10 mt-auto">
-          <p className="text-gray-500 text-[10px] mb-4 uppercase tracking-[3px] font-black">Find Me On</p>
+          <p className="text-gray-500 text-[10px] mb-4 uppercase tracking-[3px] font-black">
+            Find Me On
+          </p>
+
           <div className="flex gap-3 md:gap-4">
+
             {[
-              { icon: <FaGithub />, link: "https://github.com/ALIM23700", color: "hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]" },
-              { icon: <FaLinkedin />, link: "#", color: "hover:bg-blue-600 hover:text-white hover:shadow-[0_0_15px_rgba(37,99,235,0.5)]" },
-              { icon: <FaFacebookF />, link: "#", color: "hover:bg-blue-700 hover:text-white hover:shadow-[0_0_15px_rgba(29,78,216,0.5)]" },
-              { icon: <FaWhatsapp />, link: "https://wa.me/01791723700", color: "hover:bg-green-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]" }
+              {
+                icon: <FaGithub />,
+                link: "https://github.com/ALIM23700",
+                color: "hover:bg-white hover:text-black hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+              },
+              {
+                icon: <FaLinkedin />,
+                link: "https://www.linkedin.com/in/abdul-alim23700/",
+                color: "hover:bg-blue-600 hover:text-white hover:shadow-[0_0_15px_rgba(37,99,235,0.5)]"
+              },
+              {
+                icon: <FaFacebookF />,
+                link: "https://www.facebook.com/AbdulAlim.CSE.PUST",
+                color: "hover:bg-blue-700 hover:text-white hover:shadow-[0_0_15px_rgba(29,78,216,0.5)]"
+              },
+              {
+                icon: <FaWhatsapp />,
+                link: "https://wa.me/8801791723700",
+                color: "hover:bg-green-500 hover:text-white hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
+              }
             ].map((social, i) => (
               <motion.a
                 key={i}
                 href={social.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg md:text-xl transition-all duration-300 ${social.color}`}
                 whileHover={{ y: -8, scale: 1.1 }}
               >
                 {social.icon}
               </motion.a>
             ))}
+
           </div>
         </div>
       </motion.div>
@@ -540,48 +797,71 @@ export default function Page() {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
       >
+
         <div className="space-y-4 md:space-y-5 flex-grow">
+
           <div className="group space-y-1">
-            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">Full Name</label>
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">
+              Full Name
+            </label>
+
             <input
               type="text"
               placeholder="Abdul Alim"
               className="w-full p-3 md:p-4 rounded-xl bg-gray-900/60 border border-white/10 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm text-gray-200"
             />
           </div>
+
           <div className="group space-y-1">
-            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">Email Address</label>
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">
+              Email Address
+            </label>
+
             <input
               type="email"
               placeholder="example@mail.com"
               className="w-full p-3 md:p-4 rounded-xl bg-gray-900/60 border border-white/10 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all text-sm text-gray-200"
             />
           </div>
+
           <div className="group space-y-1 flex-grow flex flex-col">
-            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">Your Message</label>
+            <label className="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1 group-focus-within:text-blue-500 transition-colors">
+              Your Message
+            </label>
+
             <textarea
-              rows={4} 
+              rows={4}
               placeholder="Tell me about your project..."
               className="w-full p-3 md:p-4 rounded-xl bg-gray-900/60 border border-white/10 focus:border-blue-500 focus:bg-gray-900 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none text-sm text-gray-200 flex-grow"
             />
           </div>
+
         </div>
 
         <motion.button
           type="submit"
           className="w-full mt-6 bg-blue-600 hover:bg-blue-500 py-3 md:py-4 rounded-xl font-bold text-sm md:text-lg shadow-xl shadow-blue-900/20 text-white relative overflow-hidden group"
-          whileHover={{ y: -3, shadow: "0px 10px 20px rgba(37, 99, 235, 0.4)" }}
+          whileHover={{
+            y: -3,
+            shadow: "0px 10px 20px rgba(37, 99, 235, 0.4)"
+          }}
           whileTap={{ scale: 0.98 }}
         >
-          <span className="relative z-10">Send Message</span>
+          <span className="relative z-10">
+            Send Message
+          </span>
+
           {/* Button Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
         </motion.button>
+
       </motion.form>
 
     </div>
   </div>
 </section>
+
+
     </main>
   );
 }

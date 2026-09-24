@@ -7,149 +7,217 @@ import { FaFileDownload } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 
+const navLinks = [
+  { name: "Home", href: "/", id: "home" },
+  { name: "About", href: "/about", id: "about" },
+  { name: "Skills", href: "/skills", id: "skills" },
+  { name: "Projects", href: "/projects", id: "projects" },
+  { name: "Experience & Education", href: "/experience", id: "experience" },
+  { name: "Contact", href: "/contact", id: "contact" },
+];
+
+const sections = navLinks.map((link) => link.id);
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
   const pathname = usePathname();
 
+  // Scroll detection (home page section highlight + navbar background)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const update = (scrollTop) => {
+      setScrolled(scrollTop > 20);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Skills", href: "/skills" },
-    { name: "Projects", href: "/projects" },
-    { name: "Contact", href: "/contact" },
-  ];
+      if (pathname !== "/") {
+        return;
+      }
+
+      let current = "home";
+      let closest = Infinity;
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+
+        if (!el) {
+          return;
+        }
+
+        const distance = Math.abs(el.getBoundingClientRect().top);
+
+        if (distance < closest) {
+          closest = distance;
+          current = id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    const onScroll = (e) => {
+      const target = e.target;
+
+      if (target === document) {
+        update(window.scrollY);
+      } else if (
+        target instanceof HTMLElement &&
+        target.tagName === "MAIN"
+      ) {
+        update(target.scrollTop);
+      }
+    };
+
+    document.addEventListener("scroll", onScroll, true);
+
+    // Initial run
+    const main = document.querySelector("main");
+    update(Math.max(window.scrollY, main ? main.scrollTop : 0));
+
+    return () => {
+      document.removeEventListener("scroll", onScroll, true);
+    };
+  }, [pathname]);
+
+  // Active link
+  const isActive = (link) => {
+    if (pathname === "/") {
+      return activeSection === link.id;
+    }
+
+    return pathname === link.href || pathname.startsWith(link.href + "/");
+  };
+
+  // Home page e thakle click korle smooth scroll, onno page theke click korle normal navigation
+  const handleNavClick = (e, link) => {
+    setIsOpen(false);
+
+    if (pathname === "/") {
+      e.preventDefault();
+      setActiveSection(link.id);
+
+      document
+        .getElementById(link.id)
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
-      className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-lg bg-black/80 border-b border-white/10 py-3"
-          : "bg-transparent py-5"
+          ? "bg-[#0b0f19]/90 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
 
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl md:text-3xl font-black text-white tracking-tighter"
-        >
-          ABDUL <span className="text-blue-600">ALIM</span>
-        </Link>
-
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-
-          <ul className="flex items-center gap-8 text-[15px] font-medium">
-            {navLinks.map((link, i) => (
-              <motion.li
-                key={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <Link
-                  href={link.href}
-                  className={`relative transition-colors duration-300 hover:text-blue-500 ${
-                    pathname === link.href ? "text-blue-500" : "text-gray-300"
-                  }`}
-                >
-                  {link.name}
-
-                  {pathname === link.href && (
-                    <motion.span
-                      layoutId="underline"
-                      className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 rounded-full"
-                      transition={{ type: "spring", stiffness: 300 }}
-                    />
-                  )}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-
-          {/* CV Button */}
-          <motion.a
-            href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
-            target="_blank"
-            className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold"
-            whileHover={{
-              scale: 1.05,
-              y: -2,
-              boxShadow: "0px 10px 25px rgba(59,130,246,0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
+          {/* Logo */}
+          <Link
+            href="/"
+            onClick={(e) => handleNavClick(e, navLinks[0])}
+            className="text-2xl font-bold text-white"
           >
-            <FaFileDownload /> CV
-          </motion.a>
+            Abdul<span className="text-blue-500"> Alim</span>
+          </Link>
 
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link)}
+                className={`relative py-2 text-sm font-medium transition-colors duration-300 ${
+                  isActive(link)
+                    ? "text-blue-500"
+                    : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {link.name}
+
+                {isActive(link) && (
+                  <motion.span
+                    layoutId="activeNav"
+                    className="absolute left-0 right-0 -bottom-1 h-0.5 bg-blue-500"
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </Link>
+            ))}
+
+            {/* CV Button */}
+            <a
+              href="https://drive.google.com/uc?export=download&id=1hwKiBwAX52Xv6E6_HEWk5r9NkLligIM7"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+            >
+              <FaFileDownload />
+              CV
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-white text-2xl"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
         </div>
-
-        {/* Mobile Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white text-3xl"
-        >
-          {isOpen ? <HiX /> : <HiMenuAlt3 />}
-        </button>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-[#0b0f19]/95 backdrop-blur-md border-t border-gray-800"
           >
-            <ul className="flex flex-col items-center py-8 gap-6 text-lg font-medium text-white">
-
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+            <div className="px-6 py-5 space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className={`block py-2 text-base font-medium transition-colors duration-300 ${
+                    isActive(link)
+                      ? "text-blue-500"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`${
-                      pathname === link.href ? "text-blue-500" : "text-gray-300"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.li>
+                  {link.name}
+                </Link>
               ))}
 
-              <motion.li whileHover={{ scale: 1.05 }}>
-                <a
-                  href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
-                  target="_blank"
-                  className="flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-full text-sm font-bold"
-                >
-                  <FaFileDownload /> Download CV
-                </a>
-              </motion.li>
-
-            </ul>
+              {/* Mobile CV Button */}
+              <a
+                href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+              >
+                <FaFileDownload />
+                Download CV
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 };
 
