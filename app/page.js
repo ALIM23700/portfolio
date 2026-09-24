@@ -240,108 +240,144 @@ export default function Page() {
 
 {/* ================= ABOUT SECTION ================= */}
 
-<section 
-  id="about" 
-  className="relative min-h-screen flex items-center justify-center px-6 py-20 md:py-0 snap-start overflow-hidden bg-[#0b0f19]" 
-> 
-  <motion.div 
-    className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-20" 
-    initial="hidden" 
-    whileInView="show" 
-    viewport={{ once: false, amount: 0.2 }}  
-  > 
-     
-    {/* Left Side: Image স্লাইড হবে বাম থেকে */} 
-    <motion.div 
-      className="relative group cursor-pointer" 
-      variants={{ 
-        hidden: { opacity: 0, x: -120 }, 
-        show: {  
-          opacity: 1,  
-          x: 0,  
-          transition: {  
-            duration: 1.8,  
-            ease: [0.22, 1, 0.36, 1]  
-          }  
-        } 
-      }} 
-    > 
-      {/* Background Glow Effect */} 
-      <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full opacity-10 group-hover:opacity-50 blur-2xl transition duration-700"></div> 
-       
-      {/* Profile Image Wrapper */} 
-      <div className="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-1.5 bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"> 
-        <img 
-          src="/new.png" 
-          alt="Abdul Alim" 
-          className="w-full h-full rounded-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out" 
-        /> 
-      </div> 
-    </motion.div> 
- 
-    {/* Right Side: Content স্লাইড হবে নিচ থেকে এবং একটির পর একটি (Stagger) */} 
-    <motion.div  
-      className="flex-1 space-y-8 text-center md:text-left" 
-      variants={{ 
-        hidden: { opacity: 0 }, 
-        show: {  
-          opacity: 1,  
-          transition: {  
-            staggerChildren: 0.6, 
-            delayChildren: 0.35    
-          }  
-        } 
-      }} 
-    > 
-      {/* Title */} 
-      <motion.div 
-        variants={{ 
-          hidden: { opacity: 0, y: 40 }, 
-          show: { opacity: 1, y: 0, transition: { duration: 1.4, ease: "easeOut" } } 
-        }} 
-      > 
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 hover:text-blue-400 transition-colors duration-500 cursor-default"> 
-          About <span className="text-blue-500">Me</span> 
-        </h2> 
-      </motion.div> 
-       
-      {/* Description */} 
-      <motion.div 
-        variants={{ 
-          hidden: { opacity: 0, y: 40 }, 
-          show: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } } 
-        }} 
-        className="space-y-5" 
-      > 
-        <p className="text-gray-200 text-xl md:text-2xl font-medium leading-tight"> 
-          Hello! I’m <span className="text-blue-400">Abdul Alim</span>, a dedicated <br className="hidden md:block" /> 
-          <span className="text-white underline decoration-blue-500/30">MERN Stack Web Developer</span>. 
-        </p> 
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl hover:text-gray-300 transition-colors duration-500"> 
-          I specialize in building responsive, modern, and high-performance web applications using React, Next.js, Node.js, Express.js, MongoDB, Tailwind CSS, and TypeScript. 
-        </p> 
-      </motion.div> 
- 
-      {/* Info Grid Boxes */} 
-      <motion.div  
-        className="grid grid-cols-2 gap-4 pt-4" 
-        variants={{ 
-          hidden: { opacity: 0, y: 30 }, 
-          show: { opacity: 1, y: 0, transition: { duration: 1.6, ease: "easeOut" } } 
-        }} 
-      > 
-        <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">
-  CSE Graduate
-</h3>
-         
-        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg"> 
-          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">MERN</h3> 
-          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">Full Stack Dev</p> 
-        </div> 
-      </motion.div> 
- 
-    </motion.div> 
-  </motion.div> 
+<section
+  id="about"
+  className="relative min-h-screen flex items-center justify-center px-6 py-20 md:py-0 snap-start overflow-hidden bg-[#0b0f19]"
+>
+  <motion.div
+    className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-20"
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: false, amount: 0.2 }}
+  >
+    {/* Left Side: Image */}
+    <motion.div
+      className="relative group cursor-pointer"
+      variants={{
+        hidden: { opacity: 0, x: -120 },
+        show: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1.8,
+            ease: [0.22, 1, 0.36, 1],
+          },
+        },
+      }}
+    >
+      {/* Background Glow Effect */}
+      <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-full opacity-10 group-hover:opacity-50 blur-2xl transition duration-700"></div>
+
+      {/* Profile Image Wrapper */}
+      <div className="relative w-56 h-56 md:w-80 md:h-80 rounded-full p-1.5 bg-white/5 border border-white/10 backdrop-blur-sm overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+        <img
+          src="/new.png"
+          alt="Abdul Alim"
+          className="w-full h-full rounded-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-in-out"
+        />
+      </div>
+    </motion.div>
+
+    {/* Right Side: Content */}
+    <motion.div
+      className="flex-1 space-y-8 text-center md:text-left"
+      variants={{
+        hidden: { opacity: 0 },
+        show: {
+          opacity: 1,
+          transition: {
+            staggerChildren: 0.6,
+            delayChildren: 0.35,
+          },
+        },
+      }}
+    >
+      {/* Title */}
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1.4,
+              ease: "easeOut",
+            },
+          },
+        }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 hover:text-blue-400 transition-colors duration-500 cursor-default">
+          About <span className="text-blue-500">Me</span>
+        </h2>
+      </motion.div>
+
+      {/* Description */}
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1.5,
+              ease: "easeOut",
+            },
+          },
+        }}
+        className="space-y-5"
+      >
+        <p className="text-gray-200 text-xl md:text-2xl font-medium leading-tight">
+          Hello! I’m <span className="text-blue-400">Abdul Alim</span>, a
+          dedicated{" "}
+          <br className="hidden md:block" />
+          <span className="text-white underline decoration-blue-500/30">
+            MERN Stack Web Developer
+          </span>
+          .
+        </p>
+
+        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl hover:text-gray-300 transition-colors duration-500">
+          I specialize in building responsive, modern, and high-performance web
+          applications using React, Next.js, Node.js, Express.js, MongoDB,
+          Tailwind CSS, and TypeScript.
+        </p>
+      </motion.div>
+
+      {/* Info Grid Boxes */}
+      <motion.div
+        className="grid grid-cols-2 gap-4 pt-4"
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1.6,
+              ease: "easeOut",
+            },
+          },
+        }}
+      >
+        {/* Graduate Card */}
+        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg">
+          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">
+            CSE Graduate
+          </h3>
+        </div>
+
+        {/* MERN Card */}
+        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg">
+          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">
+            MERN
+          </h3>
+
+          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">
+            Full Stack Dev
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  </motion.div>
 </section>
 
 
