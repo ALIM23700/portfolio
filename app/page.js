@@ -330,10 +330,9 @@ export default function Page() {
           show: { opacity: 1, y: 0, transition: { duration: 1.6, ease: "easeOut" } } 
         }} 
       > 
-        <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg"> 
-          <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">4th Year</h3> 
-          <p className="text-gray-500 text-xs md:text-sm font-bold uppercase tracking-widest">CSE Student</p> 
-        </div> 
+        <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">
+  CSE Graduate
+</h3>
          
         <div className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:scale-105 hover:bg-white/10 hover:border-blue-500/50 transition-all duration-500 group cursor-default shadow-lg"> 
           <h3 className="text-blue-500 font-black text-2xl md:text-3xl group-hover:scale-110 transition-transform duration-500">MERN</h3> 
