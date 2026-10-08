@@ -152,7 +152,7 @@ const Navbar = () => {
             ))}
 
             {/* CV Button */}
-            // Desktop CV
+            
              <a
                  href="https://drive.google.com/uc?export=download&id=18PBdA_6qVZpPHua8yU8i8pinK2bN50SH"
                  download
