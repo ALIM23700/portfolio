@@ -152,16 +152,17 @@ const Navbar = () => {
             ))}
 
             {/* CV Button */}
-            <a
-              href="https://drive.google.com/uc?export=download&id=1hwKiBwAX52Xv6E6_HEWk5r9NkLligIM7"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
-            >
-              <FaFileDownload />
-              CV
-            </a>
+            // Desktop CV
+             <a
+                 href="https://drive.google.com/uc?export=download&id=18PBdA_6qVZpPHua8yU8i8pinK2bN50SH"
+                 download
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+               >
+  <FaFileDownload />
+  CV
+</a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -202,17 +203,18 @@ const Navbar = () => {
               ))}
 
               {/* Mobile CV Button */}
+              
               <a
-                href="https://drive.google.com/uc?export=download&id=1n-Gl31N4_waCk7AsPaxftbyqsO1dc3Hi"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+                 href="https://drive.google.com/uc?export=download&id=18PBdA_6qVZpPHua8yU8i8pinK2bN50SH"
+                 download
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 onClick={() => setIsOpen(false)}
+                 className="flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               >
-                <FaFileDownload />
-                Download CV
-              </a>
+              <FaFileDownload />
+              Download CV
+                </a>
             </div>
           </motion.div>
         )}
